@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>
+		Personalised Timer Application
+	</title>
+</head>
+<body>
+	<input type="number" class="minInput" placeholder="Enter countdown interval"/>
+	<select class="unit" name="unit">
+		<option value="1">sec</option>
+		<option value="60">min</option>
+		<option value="3600">hrs</option>
+	</select>
+	<button type="submit" onclick="startTimer()">Start Timer</button>
+	<div>Start Time: <span class="start"></span></div>
+	<div>End   Time: <span class="end"></span></div>
+	<div>Timer : <span class="time"></span></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
