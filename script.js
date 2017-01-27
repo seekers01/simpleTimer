@@ -14,15 +14,25 @@ var timer = function(){
 	$('.time').text(timeString);
 	if(currentTime >= end){
 		clearInterval(myTimer);
-		$(".minInput").attr('disabled', false);
+		$(".timeInput").attr('disabled', false);
 	}
 }
 
 var startTimer = function(){
-	$(".minInput").attr('disabled', true);
+	$(".timeInput").attr('disabled', true);
 	var start = Date.now();
-	end = start + ($(".minInput").val() * $(".unit").val() * 1000);
+	end = start + ($(".timeInput").val() * $(".unit").val() * 1000);
 	$(".start").text(formatTimeString(start));
 	$(".end").text(formatTimeString(end));
 	myTimer  = setInterval(function() {timer()}, 1);
 }
+
+$(".timeInput").bind("keypress", {}, keypressInBox);
+
+function keypressInBox(e) {
+    var code = (e.keyCode ? e.keyCode : e.which);
+    if (code == 13) { //Enter keycode                        
+        e.preventDefault();
+        startTimer();
+    }
+};
