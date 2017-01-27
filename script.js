@@ -10,12 +10,13 @@ var formatTimeString = function(millis){
 
 var timer = function(){
 	var currentTime = Date.now();
-	var timeString = formatTimeString(currentTime);
-	$('.time').text(timeString);
 	if(currentTime >= end){
 		clearInterval(myTimer);
-		$(".timeInput").attr('disabled', false);
+		$(".timeInput").attr('disabled', false).focus();
+		alert("Timer Terminated!!");
 	}
+	var timeString = formatTimeString(currentTime);
+	$('.time').text(timeString);
 }
 
 var startTimer = function(){
